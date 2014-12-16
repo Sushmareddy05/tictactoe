@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>	TIC TAC TOE</title>
+<SCRIPT LANGUAGE="JavaScript">
+var x = "into.png";
+var o = "zero.png";
+var blank = "blank.png";
+
+var a=0;
+var b = 0;
+var c=0;
+var d=0;
+var e=0;
+var f=0;
+var g=0;
+var h=0;
+var i = 0;
+var num=0;
+var lost=0;
+var tie=0;
+var game=0;
+var ok = 0;
+var win = 0;
+var cf = 0;
+var turn = 0;
+var temp = "";
+var choice = 9;
+
+//checking game over
+
+function gamecheck() 
+{
+	if(((a==1) && (b==1) && (c==1)) || ((d==1) && (e==1) && (f==1)) || ((g==1) && (h==1) && (i==1))) game = 1;
+	if(((a==1) && (d==1) && (g==1)) || ((b==1) && (e==1) && (h==1)) || ((c==1) && (f==1) && (i==1))) game = 1;
+	if(((a==1) && (e==1) && (i==1)) || ((c==1) && (e==1) && (g==1))) game = 1;
+	if(((a==2) && (b==2) && (c==2)) || ((d==2) && (e==2) && (f==2)) || ((g==2) && (h==2) && (i==2))) game = 2;
+	if(((a==2) && (d==2) && (g==2)) || ((b==2) && (e==2) && (h==2)) || ((c==2) && (f==2) && (i==2))) game = 2;
+	if(((a==2) && (e==2) && (i==2)) || ((c==2) && (e==2) && (g==2))) game = 2;
+	if ((a != 0)&&(b != 0)&&(c != 0)&&(d != 0)&&(e != 0)&&(f != 0)&&(g != 0)&&(h != 0)&&(i != 0)&&(game == 0)) game = 3;
+}
+
+function checkblank(ch)
+{
+	if ((ch == "A") && (a==0))
+	{
+		ok = 1;
+		if(cf == 1) a=1;
+		if(cf == 2) a=2;
+	}
+	if ((ch == "B") && (b==0))
+	{
+		ok = 1;
+		if(cf == 1) b=1;
+		if(cf == 2) b=2;
+	}
+	if ((ch == "C") && (c==0))
+	{
+		ok = 1;
+		if(cf == 1) c=1;
+		if(cf == 2) c=2;
+	}
+	if ((ch == "D") && (d==0))
+	{
+		ok = 1;
+		if(cf == 1) d=1;
+		if(cf == 2) d=2;
+	}
+	if ((ch == "E") && (e==0))
+	{
+		ok = 1;
+		if(cf == 1) e=1;
+		if(cf == 2) e=2;
+	}
+	if ((ch == "F") && (f==0))
+	{
+		ok = 1;
+		if(cf == 1) f=1;
+		if(cf == 2) f=2;
+	}
+	if ((ch == "G") && (g==0))
+	{
+		ok = 1;
+		if(cf == 1) g=1;
+		if(cf == 2) g=2;
+	}
+	if ((ch == "H") && (h==0))
+	{
+		ok = 1;
+		if(cf == 1) h=1;
+		if(cf == 2) h=2;
+	}
+	if ((ch == "I") && (i==0))
+	{
+		ok = 1;
+		if(cf == 1) i=1;
+		if(cf == 2) i=2;
+	}
+}
+
+function logicTwo() {
+if ((a==2)&&(b==2)&&(c== 0)&&(temp=="")) temp="C";
+if ((a==2)&&(b== 0)&&(c==2)&&(temp=="")) temp="B";
+if ((a== 0)&&(b==2)&&(c==2)&&(temp=="")) temp="A";
+if ((a==2)&&(d==2)&&(g== 0)&&(temp=="")) temp="G";
+if ((a==2)&&(d== 0)&&(g==2)&&(temp=="")) temp="D";
+if ((a== 0)&&(d==2)&&(g==2)&&(temp=="")) temp="A";
+if ((a==2)&&(e==2)&&(i== 0)&&(temp=="")) temp="I";
+if ((a==2)&&(e== 0)&&(i==2)&&(temp=="")) temp="E";
+if ((a== 0)&&(e==2)&&(i==2)&&(temp=="")) temp="A";
+if ((b==2)&&(e==2)&&(h== 0)&&(temp=="")) temp="H";
+if ((b==2)&&(e== 0)&&(h==2)&&(temp=="")) temp="E";
+if ((b== 0)&&(e==2)&&(h==2)&&(temp=="")) temp="B";
+if ((d==2)&&(e==2)&&(f== 0)&&(temp=="")) temp="F";
+if ((d==2)&&(e== 0)&&(f==2)&&(temp=="")) temp="E";
+if ((d== 0)&&(e==2)&&(f==2)&&(temp=="")) temp="D";
+if ((g==2)&&(h==2)&&(i== 0)&&(temp=="")) temp="I";
+if ((g==2)&&(h== 0)&&(i==2)&&(temp=="")) temp="H";
+if ((g== 0)&&(h==2)&&(i==2)&&(temp=="")) temp="G";
+if ((c==2)&&(f==2)&&(i== 0)&&(temp=="")) temp="I";
+if ((c==2)&&(f== 0)&&(i==2)&&(temp=="")) temp="F";
+if ((c== 0)&&(f==2)&&(i==2)&&(temp=="")) temp="C";
+if ((g==2)&&(e==2)&&(c== 0)&&(temp=="")) temp="C";
+if ((g==2)&&(e== 0)&&(c==2)&&(temp=="")) temp="E";
+if ((g== 0)&&(e==2)&&(c==2)&&(temp=="")) temp="G";
+}
+function logicThree() {
+if ((a==1)&&(b==1)&&(c==0)&&(temp=="")) temp="C";
+if ((a==1)&&(b==0)&&(c==1)&&(temp=="")) temp="B";
+if ((a==0)&&(b==1)&&(c==1)&&(temp=="")) temp="A";
+if ((a==1)&&(d==1)&&(g==0)&&(temp=="")) temp="G";
+if ((a==1)&&(d==0)&&(g==1)&&(temp=="")) temp="D";
+if ((a==0)&&(d==1)&&(g==1)&&(temp=="")) temp="A";
+if ((a==1)&&(e==1)&&(i==0)&&(temp=="")) temp="I";
+if ((a==1)&&(e==0)&&(i==1)&&(temp=="")) temp="E";
+if ((a==0)&&(e==1)&&(i==1)&&(temp=="")) temp="A";
+if ((b==1)&&(e==1)&&(h==0)&&(temp=="")) temp="H";
+if ((b==1)&&(e==0)&&(h==1)&&(temp=="")) temp="E";
+if ((b==0)&&(e==1)&&(h==1)&&(temp=="")) temp="B";
+if ((d==1)&&(e==1)&&(f==0)&&(temp=="")) temp="F";
+if ((d==1)&&(e==0)&&(f==1)&&(temp=="")) temp="E";
+if ((d==0)&&(e==1)&&(f==1)&&(temp=="")) temp="D";
+if ((g==1)&&(h==1)&&(i==0)&&(temp=="")) temp="I";
+if ((g==1)&&(h==0)&&(i==1)&&(temp=="")) temp="H";
+if ((g==0)&&(h==1)&&(i==1)&&(temp=="")) temp="G";
+if ((c==1)&&(f==1)&&(i==0)&&(temp=="")) temp="I";
+if ((c==1)&&(f==0)&&(i==1)&&(temp=="")) temp="F";
+if ((c==0)&&(f==1)&&(i==1)&&(temp=="")) temp="C";
+if ((g==1)&&(e==1)&&(c==0)&&(temp=="")) temp="C";
+if ((g==1)&&(e==0)&&(c==1)&&(temp=="")) temp="E";
+if ((g==0)&&(e==1)&&(c==1)&&(temp=="")) temp="G";
+if ((a==1)&&(b==0)&&(c==0)&&(temp=="")) temp="C";
+if ((a==0)&&(b==1)&&(c==0)&&(temp=="")) temp="C";
+if ((a==0)&&(b==0)&&(c==1)&&(temp=="")) temp="A";
+if ((a==1)&&(d==0)&&(g==0)&&(temp=="")) temp="G";
+if ((a==0)&&(d==1)&&(g==0)&&(temp=="")) temp="G";
+if ((a==1)&&(d==0)&&(g==1)&&(temp=="")) temp="A";
+if ((a==1)&&(e==0)&&(i==0)&&(temp=="")) temp="I";
+if ((a==0)&&(e==1)&&(i==0)&&(temp=="")) temp="I";
+if ((a==0)&&(e==0)&&(i==1)&&(temp=="")) temp="A";
+if ((b==1)&&(e==0)&&(h==0)&&(temp=="")) temp="H";
+if ((b==0)&&(e==0)&&(h==1)&&(temp=="")) temp="B";
+if ((b==0)&&(e==0)&&(h==1)&&(temp=="")) temp="H";
+
+}
+
+function progress()
+{
+	gamecheck();
+	if(game == 1)
+	{
+		alert("Congratulations! You won the game");
+		win = win+1;
+	}
+	if (game == 2)
+	{
+		alert("Sorry you lost! Try again!");
+		lost = lost+1;
+	}
+	if (game == 3)
+	{
+		alert("It's a tie!");
+		tie = tie+1;
+	}
+	if (game!=0)
+	{
+		/*document.you.value = win;
+		document.tictac.computer.value = lost;
+		document.tictac.ties.value = tie;*/
+		reset();
+	}
+}
+
+function reset()
+{
+	a = 0;
+	b = 0;
+	c = 0;
+	d = 0;
+	e = 0;
+	f = 0;
+	g = 0;
+	h = 0;
+	i = 0;
+	turn = 0;
+	game = 0;
+	console.log("resr");
+	document.images.A.src= blank;
+	document.images.B.src= blank;
+	document.images.C.src= blank;
+	document.images.D.src= blank;
+	document.images.E.src= blank;
+	document.images.F.src= blank;
+	document.images.G.src= blank;
+	document.images.H.src= blank;
+	document.images.I.src= blank;
+}
+
+function taken()
+{
+alert("Already occupied!");
+}
+
+function choice1(ch)
+{
+	cf = 1;
+	turn = 0;
+	ok = 0;
+	if(game!=0){}
+	else
+	{
+		checkblank(ch);
+		if(ok==1)
+		{
+			document.images[ch].src = x;
+		}
+		else
+		{
+			taken();
+			turn = 1;
+		}
+	}
+	progress();
+	
+	if(game == 0 && turn == 0)
+	{
+		choice2();
+	}
+}
+
+function choice2()
+{
+	cf = 2;
+	ok = 0;
+	temp = "";
+	for(var i=0;i<2;i++)
+	{
+		logicTwo();
+		logicThree();
+		checkblank(temp);
+		if(ok==1) 
+		{
+			break;
+		}
+	}
+	while(ok==0) 
+	{
+		aRandomNumber=Math.random()
+		comp=Math.round((choice-1)*aRandomNumber)+1;
+		if (comp==1) temp="A";
+		if (comp==2) temp="B";
+		if (comp==3) temp="C";
+		if (comp==4) temp="D";
+		if (comp==5) temp="E";
+		if (comp==6) temp="F";
+		if (comp==7) temp="G";
+		if (comp==8) temp="H";
+		if (comp==9) temp="I";
+		checkblank(temp);
+	}
+	document.images[temp].src = o;
+	progress();
+}
+
+function help()
+{
+	alert("Welcome to Tic-Tac-Toe!  You play as the X's and the computer is the O's.  Select the square you want to put your X into by clicking them.  You cannot occupy a square that is already occupied. The first player to get three squares in a row wins.  Good Luck!!");
+}
+
+</script>
+</head>
+<body background="back.jpg"; width = 1000; height = 1000>
+<center>
+<form><table><td>
+
+<table>
+<h1>Welcome Friends!</h1>
+<h2>Ready to play Tic-Tac-Toc?</h2>
+<tr>
+<td><a href = "javascript:choice1('A')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=A></a></td>
+<td><a href = "javascript:choice1('B')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=B></a></td>
+<td><a href = "javascript:choice1('C')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=C></a></td>
+</tr>
+<tr>
+<td><a href = "javascript:choice1('D')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=D></a></td>
+<td><a href = "javascript:choice1('E')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=E></a></td>
+<td><a href = "javascript:choice1('F')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=F></a></td>
+</tr>
+<tr>
+<td><a href = "javascript:choice1('G')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=G></a></td>
+<td><a href = "javascript:choice1('H')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=H></a></td>
+<td><a href = "javascript:choice1('I')"><img src = "D:\tictactoe\blank.png" border=0 height=100 width=100 name=I></a></td>
+</tr>
+</td>
+<!--
+<td>
+<table>
+<tr><td><input type=text size=5 name=you></td><td>You</td></tr>
+<tr><td><input type=text size=5 name=computer></td><td>Computer</td></tr>
+<tr><td><input type=text size=5 name=ties></td><td>Ties</td></tr>
+</table>
+</td>-->
+
+</table>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+<button id="btn" onclick="reset()">Play Again</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="btn1" onclick="help()">Help</button>
+</form>
+</center>
+</body>
+</html>
